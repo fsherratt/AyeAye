@@ -65,7 +65,7 @@ class MultiConnector(DataConnector):
                     else:
                         # new engine_url
                         connector_cls = connector_factory(engine_url)
-                        connector = connector_cls(engine_url=engine_url, access=self.access)
+                        connector = connector_cls(engine_url=engine_url, access=self.access, **self.connector_kwargs)
                         self._child_data_connectors.append(connector)
                         self._child_dc_mapping[engine_url] = idx
 
